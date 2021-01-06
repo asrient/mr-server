@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}Friendzone{% endblock %}
+{% block script %}"/static/bundle/app.js"{% endblock %}
+{% block content %}
+<script>
+    {% autoescape off %}
+    window.initialState = {{ state }}
+    {% endautoescape %}
+</script>
+<div id="root">Loading...</div>
+<audio id="player"></audio>
+<script src="/static/scripts/hls.js"></script>
+<script src="/static/scripts/socket.io.js"></script>
+<script>
+    window.player = document.getElementById('player');
+    if (!Hls.isSupported()) {
+    console.error('HTTP Live Streaming not supported!')
+  }
+</script>
+{% endblock %}

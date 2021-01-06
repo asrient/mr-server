@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>{% block title %}Friendzone{% endblock %}</title>
+    {% block head %}
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="/static/xui/xui.css" />
+    <link rel="stylesheet" type="text/css" href="/static/styles/shared.css" />
+    <script src="/static/scripts/jquery.js"></script>
+    <script src="/static/scripts/shared.js"></script>
+    <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1.0, user-scalable=0">
+    <meta name="description" content={% block desc %}"Enjoy music with friends together, free!"{% endblock %} />
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/favicon-16x16.png">
+    <link rel="manifest" href="/static/site.webmanifest">
+    <link rel="mask-icon" href="/static/safari-pinned-tab.svg" color="#6236e7">
+    <link rel="shortcut icon" href="/static/favicon.ico">
+    <meta name="apple-mobile-web-app-title" content="Friendzone">
+    <meta name="application-name" content="Friendzone">
+    <meta name="msapplication-TileColor" content="#9f00a7">
+    <meta name="msapplication-config" content="/static/browserconfig.xml">
+    <meta name="theme-color" content="#c9bafb">
+    {% block tags %}{% endblock %}
+    {% endblock %}
+</head>
+
+<body>
+    {% block body %}
+    <script src="/static/scripts/bg.js"></script>
+    <div id="bg">
+        {% block root %}
+        {% include "header.html" with blank=no_header|default:False %}
+        {% block content %}
+        <h1>Something went wrong!</h1>
+        {% endblock %}
+        {% endblock %}
+    </div>
+    {% endblock %}
+</body>
+<script src={% block script %}{% endblock %}></script>
+</html>
